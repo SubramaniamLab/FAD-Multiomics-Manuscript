@@ -1,0 +1,7 @@
+SampleID	Condition	bamReads	Peaks	conditionSummary
+NDC_1	NDC	/home/prvaldes/scratch/diffTF/input/data/bam/NDC_1.bam	/home/prvaldes/scratch/diffTF/input/data/peaks/NDC_1.bed	NDC
+NDC_2	NDC	/home/prvaldes/scratch/diffTF/input/data/bam/NDC_2.bam	/home/prvaldes/scratch/diffTF/input/data/peaks/NDC_2.bed	NDC
+NDC_3	NDC	/home/prvaldes/scratch/diffTF/input/data/bam/NDC_3.bam	/home/prvaldes/scratch/diffTF/input/data/peaks/NDC_3.bed	NDC
+N141I_1	N141I	/home/prvaldes/scratch/diffTF/input/data/bam/N141I_1.bam	/home/prvaldes/scratch/diffTF/input/data/peaks/N141I_1.bed	N141I
+N141I_2	N141I	/home/prvaldes/scratch/diffTF/input/data/bam/N141I_2.bam	/home/prvaldes/scratch/diffTF/input/data/peaks/N141I_2.bed	N141I
+N141I_3	N141I	/home/prvaldes/scratch/diffTF/input/data/bam/N141I_3.bam	/home/prvaldes/scratch/diffTF/input/data/peaks/N141I_3.bed	N141I

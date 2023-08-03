@@ -1,0 +1,35 @@
+{
+  "par_general": {
+    "outdir": "/home/prvaldes/scratch/diffTF/output_A79V_cisBP",
+    "maxCoresPerRule": 16,
+    "dir_TFBS_sorted": true,
+    "regionExtension": 100,
+    "comparisonType": "NDCvsA79V.all",
+    "conditionComparison": "NDC,A79V",
+    "designContrast": "~ conditionSummary",
+    "designContrastRNA": "~ conditionSummary",
+    "designVariableTypes": "conditionSummary:factor",
+    "nPermutations": 0,
+    "nBootstraps": 1000,
+    "nCGBins": 10,
+    "TFs": "all",
+    "dir_scripts": "/home/prvaldes/scratch/diffTF/src/R",
+    "RNASeqIntegration": true,
+    "debugMode": true
+  },
+  "samples": {
+    "summaryFile": "/home/prvaldes/scratch/diffTF/input/sampleData_A79V.tsv",
+    "pairedEnd": true
+  },
+  "peaks": {
+    "consensusPeaks": "",
+    "peakType": "bed",
+    "minOverlap": 2
+  },
+  "additionalInputFiles": {
+    "refGenome_fasta": "/home/prvaldes/scratch/diffTF/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna",
+    "dir_TFBS": "/home/prvaldes/scratch/diffTF/cisBP/CIS-BP_MEME_TFBS_human",
+    "RNASeqCounts": "/home/prvaldes/scratch/diffTF/input/data/RNA-seq/RNA-seq-counts2.tsv",
+    "HOCOMOCO_mapping": "/home/prvaldes/scratch/diffTF/src/TF_Gene_TranslationTables/cisBP/translationTable_cisBP.csv"
+  }
+}
