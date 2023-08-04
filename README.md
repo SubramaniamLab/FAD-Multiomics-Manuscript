@@ -14,4 +14,4 @@ PSEN1, PSEN2, and APP mutations cause Alzheimer’s disease (AD) with an early a
 Sequencing analysis scripts for Valdes et. al 2023 FAD Multiomics Manuscript.
 
 ## Data Availability
-The sequencing data for this project is available at (https://img.shields.io/badge/GEO_GSE206603)](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE206603)
+The sequencing data for this project is available at [![HTML GEO](https://img.shields.io/badge/any_text-you_like-blue)](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE206603)
