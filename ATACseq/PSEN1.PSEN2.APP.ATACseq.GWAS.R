@@ -378,20 +378,100 @@ write.csv(AD_loci_PSEN2vs.NDC_GRanges_Overlap_PEREGRINE.enhancer_down_df, file="
 #17. Look at common variants among mutations
 #############################################
 
-#Get APP vs. NDC variants
-APP_variants <- read.csv("~/GWAS_Loci_Analysis/APPvs.NDC_variants/APPvs.NDC_overlap_GWAS_variants.csv")
+#############################################
+#17. Look at common variants among mutations
+#############################################
+
+############################
+#17a. APP vs. NDC variants
+############################
+
+#Read.csv file with additional database information for APP vs. NDC variants
+#with the column names Variant, Gene, Locus, Database_Reference_Paper
+#P-value, Effect.Size, Phenotype and Association.type manually created by user
+APP_variants_databaseInfo <- read.csv("/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/APPvs.NDC_variants/230608_APPvs.NDC_AD_variants_DARs_databaseInfo.csv")
+
+#Filter only actual gene and locus symbols with Gene !='NR' and Locus != 'NR'
+APP_variants_databaseInfo.filtered <- APP_variants_databaseInfo %>%
+  dplyr::filter(Gene != "NR") %>%
+  dplyr::filter(Locus != "NR")
+
+#Filter out and only keep Phenotype = AD and ADRD
+APP_variants <- APP_variants_databaseInfo.filtered %>%
+  dplyr::filter(Phenotype != "Other") %>%
+  dplyr::filter(Phenotype != "NR") %>%
+  dplyr::filter(Phenotype != "Non-ADRD") %>%
+  dplyr::filter(Phenotype != "Neuropathology; Non-Demented autopsy subjects") %>%
+  dplyr::filter(Phenotype != "Fluid biomarker, all subset analyzed") %>%
+  dplyr::filter(Phenotype != "Cognitive") %>%
+  dplyr::filter(Phenotype != "Age at onset (AAO)")
+
+#Write to .csv file the APP vs. NDC variants
+write.csv(APP_variants, file="/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/APPvs.NDC_variants/APPvs.NDC_overlap_GWAS_variants_filtered.csv", sep="\t", quote=F, row.names=T)
+
+#Convert 26 filtered APP vs. NDC variants to list
 APP_variants_list <- list(APP_variants = as.character(unique(APP_variants$Variant)))
 
+############################
+#17b. PSEN1 vs. NDC variants
+############################
 
-#Get PSEN1 vs. NDC variants  
-PSEN1_variants <- read.csv("~/GWAS_Loci_Analysis/PSEN1vs.NDC_variants/PSEN1vs.NDC_overlap_GWAS_variants.csv")
+#Read.csv file with additional database information for APP vs. NDC variants
+#with the column names Variant, Gene, Locus, Database_Reference_Paper
+#P-value, Effect.Size, Phenotype and Association.type manually created by user
+PSEN1_variants_databaseInfo <- read.csv("/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/PSEN1vs.NDC_variants/230608_PSEN1vs.NDC_AD_variants_DARs_databaseInfo.csv")
+
+#Filter only actual gene and locus symbols with Gene !='NR' and Locus != 'NR'
+PSEN1_variants_databaseInfo.filtered <- PSEN1_variants_databaseInfo %>%
+  dplyr::filter(Gene != "NR") %>%
+  dplyr::filter(Locus != "NR")
+
+#Filter out and only keep Phenotype = AD and ADRD
+PSEN1_variants <- PSEN1_variants_databaseInfo.filtered %>%
+  dplyr::filter(Phenotype != "Age at onset (AAO)") %>%
+  dplyr::filter(Phenotype != "Fluid biomarker") %>%
+  dplyr::filter(Phenotype != "Fluid biomarker, all subset analyzed") %>%
+  dplyr::filter(Phenotype != "Neuropathology; Non-Demented autopsy subjects") %>%
+  dplyr::filter(Phenotype != "Imaging") %>%
+  dplyr::filter(Phenotype != "Non-ADRD") %>%
+  dplyr::filter(Phenotype != "Other")
+
+#Write to .csv file the APP vs. NDC variants
+write.csv(PSEN1_variants, file="/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/PSEN1vs.NDC_variants/PSEN1vs.NDC_overlap_GWAS_variants_filtered.csv", sep="\t", quote=F, row.names=T)
+
+#Convert 42 filtered PSEN1 vs. NDC variants to list
 PSEN1_variants_list <- list(PSEN1_variants = as.character(unique(PSEN1_variants$Variant)))
 
+############################
+#17c. PSEN2 vs. NDC variants
+############################
 
-#Get PSEN2 vs. NDC variants  
-PSEN2_variants <- read.csv("~/GWAS_Loci_Analysis/PSEN2vs.NDC_variants/PSEN2vs.NDC_overlap_GWAS_variants.csv")
+#Read.csv file with additional database information for APP vs. NDC variants
+#with the column names Variant, Gene, Locus, Database_Reference_Paper
+#P-value, Effect.Size, Phenotype and Association.type manually created by user
+PSEN2_variants_databaseInfo <- read.csv("/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/PSEN2vs.NDC_variants/230608_PSEN2vs.NDC_AD_variants_DARs_databaseInfo.csv")
+
+#Filter only actual gene and locus symbols with Gene !='NR' and Locus != 'NR'
+PSEN2_variants_databaseInfo.filtered <- PSEN2_variants_databaseInfo %>%
+  dplyr::filter(Gene != "NR") %>%
+  dplyr::filter(Locus != "NR")
+
+#Filter out and only keep Phenotype = AD and ADRD
+PSEN2_variants <- PSEN2_variants_databaseInfo.filtered %>%
+  dplyr::filter(Phenotype != "Age at onset (AAO)") %>%
+  dplyr::filter(Phenotype != "Fluid biomarker") %>%
+  dplyr::filter(Phenotype != "Fluid biomarker, all subset analyzed") %>%
+  dplyr::filter(Phenotype != "Non-ADRD") 
+
+#Write to .csv file the APP vs. NDC variants
+write.csv(PSEN2_variants, file="/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/PSEN2vs.NDC_variants/PSEN2vs.NDC_overlap_GWAS_variants_filtered.csv", sep="\t", quote=F, row.names=T)
+
+#Convert to list  
 PSEN2_variants_list <- list(PSEN2_variants = as.character(unique(PSEN2_variants$Variant)))
 
+####################################
+#17d. Get the common variants by ID
+####################################
 
 #Get common variants by variant ID
 APP_PSEN1_common_variants <- merge(APP_variants, PSEN1_variants, by = "Variant")
@@ -401,10 +481,11 @@ APP_PSEN1_PSEN2_common_variants <- merge(APP_PSEN1_common_variants, PSEN2_varian
 
 
 #Write .csv files
-write.csv(APP_PSEN1_common_variants, file="~/GWAS_Loci_Analysis/Common_AD_variants/230621_Common_AD_variants_DARs_APP_PSEN1.csv", sep="\t", quote=F, row.names=T)
-write.csv(PSEN1_PSEN2_common_variants, file="~/GWAS_Loci_Analysis/Common_AD_variants/230621_Common_AD_variants_DARs_PSEN1_PSEN2.csv", sep="\t", quote=F, row.names=T)
-write.csv(APP_PSEN2_common_variants, file="~/GWAS_Loci_Analysis/Common_AD_variants/230621_Common_AD_variants_DARs_APP_PSEN2.csv", sep="\t", quote=F, row.names=T)
-write.csv(APP_PSEN1_PSEN2_common_variants, file="~/GWAS_Loci_Analysis/Common_AD_variants/230621_Common_AD_variants_DARs_allMutations.csv", sep="\t", quote=F, row.names=T)
+write.csv(APP_PSEN1_common_variants, file="/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/Common_AD_variants/230621_Common_AD_variants_DARs_APP_PSEN1.csv", sep="\t", quote=F, row.names=T)
+write.csv(PSEN1_PSEN2_common_variants, file="/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/Common_AD_variants/230621_Common_AD_variants_DARs_PSEN1_PSEN2.csv", sep="\t", quote=F, row.names=T)
+write.csv(APP_PSEN2_common_variants, file="/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/Common_AD_variants/230621_Common_AD_variants_DARs_APP_PSEN2.csv", sep="\t", quote=F, row.names=T)
+write.csv(APP_PSEN1_PSEN2_common_variants, file="/Users/phoebevaldes/Desktop/EOFAD_MS_Revisions/GWAS_Loci_Analysis/Common_AD_variants/230621_Common_AD_variants_DARs_allMutations.csv", sep="\t", quote=F, row.names=T)
+
 
 #################################################################
 #18. Create Venn Diagram for AD variants in all DARs (FDR < 0.05)
